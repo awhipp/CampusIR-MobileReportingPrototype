@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".LoginActivity">
+
+    <com.rzepka.hsiao.whipp.campusir.TitleBar
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:id="@+id/view"
+        />
+
+    <TextView
+        android:layout_width="fill_parent"
+        android:layout_height="100dp"
+        android:textSize="42dp"
+        android:gravity="center"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="C a m p u s   I R"
+        android:textColor="#FFFFFF"
+        android:id="@+id/title"
+        android:textStyle="bold"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"/>
+
+    <Button
+        android:background="@drawable/styled_button"
+        style="@style/button_text"
+        android:layout_width="285dp"
+        android:layout_height="60dp"
+        android:text="New Report"
+        android:id="@+id/new_report"
+        android:layout_marginTop="79dp"
+        android:layout_below="@+id/view"
+        android:layout_alignLeft="@+id/my_reports" />
+
+    <Button
+        android:background="@drawable/styled_button"
+        style="@style/button_text"
+        android:layout_width="285dp"
+        android:layout_height="60dp"
+        android:text="My Reports"
+        android:id="@+id/my_reports"
+        android:layout_marginTop="70dp"
+        android:layout_below="@+id/new_report"
+        android:layout_centerHorizontal="true" />
+
+    <Button
+        android:background="@drawable/styled_button"
+        style="@style/button_text"
+        android:textSize="20sp"
+        android:layout_width="130dp"
+        android:layout_height="wrap_content"
+        android:text="Log Out"
+        android:textColor="#FFFFFF"
+        android:id="@+id/logout_button"
+        android:layout_marginTop="77dp"
+        android:layout_below="@+id/my_reports"
+        android:layout_centerHorizontal="true" />
+
+
+
+</RelativeLayout>
