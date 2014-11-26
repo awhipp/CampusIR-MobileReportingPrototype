@@ -20,6 +20,14 @@
             android:name="com.rzepka.hsiao.whipp.campusir.MenuActivity"
             android:label="@string/title_activity_menu" >
         </activity>
+        <activity
+            android:name="com.rzepka.hsiao.whipp.campusir.NewReport"
+            android:label="@string/title_activity_new_report" >
+        </activity>
+        <activity
+            android:name="com.rzepka.hsiao.whipp.campusir.MyReports"
+            android:label="@string/title_activity_my_reports" >
+        </activity>
     </application>
 
 </manifest>

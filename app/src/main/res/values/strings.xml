@@ -5,5 +5,29 @@
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_menu">MenuActivity</string>
+    <string name="title_activity_new_report">New Report</string>
+    <string name="title_activity_my_reports">My Reports</string>
+
+
+    <string name="new_report">N e w   R e p o r t</string>
+    <string name="my_reports">M y   R e p o r t s</string>
+    <string name="campus_ir">C a m p u s   I R</string>
+    <string name="logout">Log Out</string>
+    <string name="login">Log In</string>
+    <string name="remember_me">Remember Me?</string>
+    <string name="username">University ID</string>
+    <string name="password">Password</string>
+    <string name="enter_location">Location:</string>
+
+    <string-array name="buildings_array">
+        <item>Queen Annes</item>
+        <item>Dorchester</item>
+        <item>Saint Mary\'s</item>
+        <item>Anne Arundel</item>
+        <item>Somerset</item>
+        <item>Wicomico</item>
+        <item>Caroline</item>
+        <item>Worcester</item>
+    </string-array>
 
 </resources>

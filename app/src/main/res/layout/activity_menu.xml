@@ -14,10 +14,10 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="100dp"
-        android:textSize="42dp"
+        android:textSize="42sp"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="C a m p u s   I R"
+        android:text="@string/campus_ir"
         android:textColor="#FFFFFF"
         android:id="@+id/title"
         android:textStyle="bold"
@@ -31,21 +31,22 @@
         style="@style/button_text"
         android:layout_width="285dp"
         android:layout_height="60dp"
-        android:text="New Report"
-        android:id="@+id/new_report"
-        android:layout_marginTop="79dp"
+        android:text="@string/title_activity_my_reports"
+        android:id="@+id/my_reports"
+        android:layout_marginTop="81dp"
         android:layout_below="@+id/view"
-        android:layout_alignLeft="@+id/my_reports" />
+        android:layout_alignLeft="@+id/new_report"
+        android:layout_alignStart="@+id/new_report" />
 
     <Button
         android:background="@drawable/styled_button"
         style="@style/button_text"
         android:layout_width="285dp"
         android:layout_height="60dp"
-        android:text="My Reports"
-        android:id="@+id/my_reports"
+        android:text="@string/title_activity_new_report"
+        android:id="@+id/new_report"
         android:layout_marginTop="70dp"
-        android:layout_below="@+id/new_report"
+        android:layout_below="@+id/my_reports"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -54,11 +55,11 @@
         android:textSize="20sp"
         android:layout_width="130dp"
         android:layout_height="wrap_content"
-        android:text="Log Out"
+        android:text="@string/logout"
         android:textColor="#FFFFFF"
         android:id="@+id/logout_button"
         android:layout_marginTop="77dp"
-        android:layout_below="@+id/my_reports"
+        android:layout_below="@+id/new_report"
         android:layout_centerHorizontal="true" />
 
 

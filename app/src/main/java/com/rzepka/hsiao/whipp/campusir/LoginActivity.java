@@ -40,7 +40,8 @@ public class LoginActivity extends Activity {
                     Log.d(TAG, "Saved in SharedPreferences");
                 }
 
-                if(id.getText().toString().equals("uid") && password.getText().toString().equals("pw")){
+                /* Blank UID and PW for sake of ease of testing */
+                if(id.getText().toString().equals("") && password.getText().toString().equals("")){
                     Intent intent = new Intent(context, MenuActivity.class);
                     startActivity(intent);
                 }else{

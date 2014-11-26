@@ -14,10 +14,10 @@
     <TextView
         android:layout_width="fill_parent"
         android:layout_height="100dp"
-        android:textSize="42dp"
+        android:textSize="42sp"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="C a m p u s   I R"
+        android:text="@string/campus_ir"
         android:textColor="#FFFFFF"
         android:id="@+id/title" />
 
@@ -26,7 +26,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="University ID"
+        android:text="@string/username"
         android:id="@+id/textView"
         android:layout_marginTop="51dp"
         android:layout_below="@+id/view"
@@ -36,7 +36,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textAppearance="?android:attr/textAppearanceMedium"
-        android:text="Password"
+        android:text="@string/password"
         android:id="@+id/textView2"
         android:layout_below="@+id/id"
         android:layout_centerHorizontal="true"
@@ -45,7 +45,7 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Login"
+        android:text="@string/login"
         android:id="@+id/login_button"
         android:layout_below="@+id/remember_checkbox"
         android:layout_alignLeft="@+id/remember_checkbox"
@@ -56,7 +56,7 @@
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Remember Me?"
+        android:text="@string/remember_me"
         android:id="@+id/remember_checkbox"
         android:layout_marginTop="49dp"
         android:checked="false"
