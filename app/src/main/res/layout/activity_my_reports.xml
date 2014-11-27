@@ -20,18 +20,28 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/my_reports"
         android:textColor="#FFFFFF"
-        android:id="@+id/title" />
+        android:id="@+id/title"
+        android:textStyle="bold"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"/>
 
     <ScrollView
         android:layout_width="fill_parent"
-        android:layout_height="wrap_content">
-        <RelativeLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <!-- Content here -->
+        android:layout_height="wrap_content"
+        android:id="@+id/scrollView"
+        android:layout_marginTop="10dp"
+        android:layout_below="@id/title">
 
-        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/linear_holder"
+            android:orientation="vertical"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content">
+
+        </LinearLayout>
     </ScrollView>
 
 </RelativeLayout>

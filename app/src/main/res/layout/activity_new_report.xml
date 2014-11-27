@@ -22,8 +22,11 @@
         android:text="@string/new_report"
         android:textColor="#FFFFFF"
         android:id="@+id/title"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:textStyle="bold"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"/>
 
     <ScrollView
         android:layout_width="fill_parent"
@@ -89,7 +92,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:inputType="textWebEditText"
-                    android:id="@+id/editText" />
+                    android:id="@+id/area" />
 
             </LinearLayout>
 
@@ -138,7 +141,7 @@
                     android:layout_height="wrap_content"
                     android:inputType="textMultiLine"
                     android:ems="10"
-                    android:id="@+id/editText2"
+                    android:id="@+id/description"
                     android:layout_marginLeft="10dp"/>
 
             </LinearLayout>

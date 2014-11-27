@@ -19,7 +19,12 @@
         android:textAppearance="?android:attr/textAppearanceLarge"
         android:text="@string/campus_ir"
         android:textColor="#FFFFFF"
-        android:id="@+id/title" />
+        android:id="@+id/title"
+        android:textStyle="bold"
+        android:shadowColor="#000000"
+        android:shadowDx="1"
+        android:shadowDy="1"
+        android:shadowRadius="2"/>
 
     
     <TextView
