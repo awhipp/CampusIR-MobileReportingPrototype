@@ -142,11 +142,8 @@ public class NewReport extends Activity {
 
                 imageView.setImageBitmap(bitmap);
                 imageView.setAdjustViewBounds(true);
-//                Toast.makeText(this, selectedImage.toString(),Toast.LENGTH_LONG).show();
             } catch (Exception e) {
-                Toast.makeText(this, "Failed to load", Toast.LENGTH_SHORT)
-                        .show();
-                e.printStackTrace();
+                Toast.makeText(this, "Image Capture Failed. Try again.", Toast.LENGTH_LONG).show();
             }
         }
     }
@@ -171,6 +168,7 @@ public class NewReport extends Activity {
     public String byteToString(byte[] data){
         return Base64.encodeToString(data, Base64.DEFAULT);
     }
+
 
 
 }

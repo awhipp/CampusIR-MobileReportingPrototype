@@ -34,10 +34,8 @@ public class LoginActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-
         context = getApplicationContext();
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
-        prefs.edit().clear().apply();
 
         new DeserializePreferences().execute(context);
 

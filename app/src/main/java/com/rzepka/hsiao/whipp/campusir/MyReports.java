@@ -1,10 +1,15 @@
 package com.rzepka.hsiao.whipp.campusir;
 
 import android.app.Activity;
+import android.content.Context;
+import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
+import android.preference.PreferenceManager;
 import android.view.Gravity;
+import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Space;
@@ -15,11 +20,19 @@ import java.util.ArrayList;
 
 public class MyReports extends Activity {
 
+    Context context;
+    MyApplication m;
+    SharedPreferences prefs;
+
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_reports);
 
-        MyApplication m = ((MyApplication) getApplicationContext());
+        context = getApplicationContext();
+        prefs = PreferenceManager.getDefaultSharedPreferences(context);
+
+        m = ((MyApplication) getApplicationContext());
         ArrayList<Report> reports = m.reports_array;
 
         LinearLayout linear_holder = (LinearLayout) findViewById(R.id.linear_holder);
@@ -27,14 +40,27 @@ public class MyReports extends Activity {
                 new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT,
                         WindowManager.LayoutParams.WRAP_CONTENT);
 
+        Button clear_cache = (Button) findViewById(R.id.clear_cache);
+
+        clear_cache.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                m.reports_array = new ArrayList<Report>();
+                boolean remember = prefs.getBoolean("REMEMBER", false);
+                prefs.edit().clear().apply();
+                prefs.edit().putBoolean("REMEMBER",remember);
+                Intent intent = new Intent(context, MyReports.class);
+                startActivity(intent);
+                finish();
+            }
+        });
+
         for(Report r : reports){
             LinearLayout l = new LinearLayout(this);
             l.setOrientation(LinearLayout.HORIZONTAL);
             l.setLayoutParams(LLParams);
             ImageView img = new ImageView(this);
-            Log.d("MYREPORTS", r.getCapture().toString());
             img.setImageBitmap(r.getCapture());
-            img.setMaxHeight(400);
+            img.setMaxWidth(250);
             img.setAdjustViewBounds(true);
             img.setTop(10);
             img.setBottom(10);
@@ -48,6 +74,9 @@ public class MyReports extends Activity {
             issue.setText("Issue: " + r.getIssue_type());
             TextView description = new TextView(this);
             description.setText("Description: " + r.getDescription());
+            Space internal_spacer = new Space(this);
+            internal_spacer.setMinimumWidth(20);
+            l.addView(internal_spacer);
             internal.addView(location);
             internal.addView(issue);
             internal.addView(description);

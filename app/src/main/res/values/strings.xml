@@ -21,6 +21,7 @@
     <string name="description">Description:</string>
     <string name="submit">Submit</string>
     <string name="take_pic">Take a Picture</string>
+    <string name="clear_cache">Clear Reports Cache</string>
 
     <string-array name="buildings_array">
         <item>Queen Annes</item>
