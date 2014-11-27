@@ -7,8 +7,6 @@
     <string name="title_activity_menu">MenuActivity</string>
     <string name="title_activity_new_report">New Report</string>
     <string name="title_activity_my_reports">My Reports</string>
-
-
     <string name="new_report">N e w   R e p o r t</string>
     <string name="my_reports">M y   R e p o r t s</string>
     <string name="campus_ir">C a m p u s   I R</string>
@@ -17,7 +15,12 @@
     <string name="remember_me">Remember Me?</string>
     <string name="username">University ID</string>
     <string name="password">Password</string>
-    <string name="enter_location">Location:</string>
+    <string name="enter_location">Incident Building:</string>
+    <string name="room_or_area">Incident Room/Area:</string>
+    <string name="issue_type">Issue Type:</string>
+    <string name="description">Description:</string>
+    <string name="submit">Submit</string>
+    <string name="take_pic">Take a Picture</string>
 
     <string-array name="buildings_array">
         <item>Queen Annes</item>
@@ -29,5 +32,14 @@
         <item>Caroline</item>
         <item>Worcester</item>
     </string-array>
+    <string-array name="issue_array">
+        <item>Broken Window</item>
+        <item>Broken A/C</item>
+        <item>Broken Lock</item>
+        <item>Water Not Working</item>
+        <item>Other (explain in description section)</item>
+    </string-array>
+
+    <string name="title_activity_camera">Camera</string>
 
 </resources>

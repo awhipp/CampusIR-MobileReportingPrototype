@@ -18,9 +18,9 @@ public class MenuActivity extends Activity {
 
         context = this;
 
+        //Button my_reports = (Button) findViewById(R.id.my_reports);
         Button new_report = (Button) findViewById(R.id.new_report);
         Button logout = (Button) findViewById(R.id.logout_button);
-
 
         new_report.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -36,4 +36,7 @@ public class MenuActivity extends Activity {
             }
         });
     }
+
+    protected void onResume(){super.onResume();}
+    protected void onStop(){super.onStop();}
 }
