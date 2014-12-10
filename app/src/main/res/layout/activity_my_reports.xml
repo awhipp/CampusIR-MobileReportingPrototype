@@ -6,19 +6,20 @@
     android:paddingBottom="@dimen/activity_vertical_margin"
     tools:context="com.rzepka.hsiao.whipp.campusir.MyReports">
 
+    <!--
     <com.rzepka.hsiao.whipp.campusir.TitleBar
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
+        android:layout_height="100dp"
         android:id="@+id/view"
-        />
+    />
 
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
+        android:layout_height="100dp"
         android:textSize="42sp"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/my_reports"
+        android:text="@string/campus_ir"
         android:textColor="#FFFFFF"
         android:id="@+id/title"
         android:textStyle="bold"
@@ -27,12 +28,13 @@
         android:shadowDy="1"
         android:shadowRadius="2"/>
 
+    -->
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="430dp"
         android:id="@+id/scrollView"
-        android:layout_marginTop="10dp"
-        android:layout_below="@id/title">
+        android:layout_marginTop="10dp">
 
 
         <LinearLayout

@@ -12,6 +12,7 @@ import android.os.Environment;
 import android.preference.PreferenceManager;
 import android.provider.MediaStore;
 import android.util.Base64;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
@@ -43,7 +44,10 @@ public class NewReport extends Activity {
         context = getApplicationContext();
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
-
+        if(getActionBar()!= null) {
+            getActionBar().setTitle("New Incident");
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
         final Button camera_button = (Button) findViewById(R.id.camera_button);
         final Button submit_button = (Button) findViewById(R.id.submit_button);
         final EditText area_text = (EditText) findViewById(R.id.area);
@@ -169,6 +173,15 @@ public class NewReport extends Activity {
         return Base64.encodeToString(data, Base64.DEFAULT);
     }
 
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
 
 }

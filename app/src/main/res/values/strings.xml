@@ -15,8 +15,8 @@
     <string name="remember_me">Remember Me?</string>
     <string name="username">University ID</string>
     <string name="password">Password</string>
-    <string name="enter_location">Incident Building:</string>
-    <string name="room_or_area">Incident Room/Area:</string>
+    <string name="enter_location">Building:</string>
+    <string name="room_or_area">Room/Area:</string>
     <string name="issue_type">Issue Type:</string>
     <string name="description">Description:</string>
     <string name="submit">Submit</string>
@@ -42,5 +42,6 @@
     </string-array>
 
     <string name="title_activity_camera">Camera</string>
+    <string name="title_activity_test">test</string>
 
 </resources>

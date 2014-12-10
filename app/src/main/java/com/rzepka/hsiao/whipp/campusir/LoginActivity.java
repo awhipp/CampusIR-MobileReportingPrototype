@@ -37,6 +37,9 @@ public class LoginActivity extends Activity {
         context = getApplicationContext();
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
+        if(getActionBar() != null)
+            getActionBar().setTitle("Campus Incident Reporter");
+
         new DeserializePreferences().execute(context);
 
         if(prefs.getBoolean("REMEMBER", false)){

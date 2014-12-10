@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
@@ -32,6 +33,11 @@ public class MyReports extends Activity {
         context = getApplicationContext();
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
 
+        if(getActionBar()!=null) {
+            getActionBar().setTitle("My Reports");
+            getActionBar().setDisplayHomeAsUpEnabled(true);
+        }
+
         m = ((MyApplication) getApplicationContext());
         ArrayList<Report> reports = m.reports_array;
 
@@ -44,7 +50,7 @@ public class MyReports extends Activity {
 
         clear_cache.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                m.reports_array = new ArrayList<Report>();
+                m.reports_array = new ArrayList<>();
                 boolean remember = prefs.getBoolean("REMEMBER", false);
                 prefs.edit().clear().apply();
                 prefs.edit().putBoolean("REMEMBER",remember);
@@ -87,6 +93,16 @@ public class MyReports extends Activity {
             space.setMinimumHeight(20);
             linear_holder.addView(space);
         }
+    }
+
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
     }
 
 }

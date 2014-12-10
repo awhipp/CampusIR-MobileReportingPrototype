@@ -19,6 +19,9 @@ public class MenuActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_menu);
 
+        if(getActionBar() != null)
+            getActionBar().setTitle("Campus IR Menu");
+
         context = this;
         prefs = PreferenceManager.getDefaultSharedPreferences(context);
         Button my_reports = (Button) findViewById(R.id.my_reports);

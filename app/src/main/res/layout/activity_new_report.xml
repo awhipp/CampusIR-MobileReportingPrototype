@@ -7,19 +7,20 @@
     tools:context="com.rzepka.hsiao.whipp.campusir.NewReport"
     >
 
+    <!--
     <com.rzepka.hsiao.whipp.campusir.TitleBar
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
+        android:layout_height="100dp"
         android:id="@+id/view"
-        />
+    />
 
     <TextView
         android:layout_width="fill_parent"
-        android:layout_height="60dp"
+        android:layout_height="100dp"
         android:textSize="42sp"
         android:gravity="center"
         android:textAppearance="?android:attr/textAppearanceLarge"
-        android:text="@string/new_report"
+        android:text="@string/campus_ir"
         android:textColor="#FFFFFF"
         android:id="@+id/title"
         android:textStyle="bold"
@@ -28,12 +29,13 @@
         android:shadowDy="1"
         android:shadowRadius="2"/>
 
+    -->
+
     <ScrollView
         android:layout_width="fill_parent"
         android:layout_height="420dp"
         android:id="@+id/scrollView"
-        android:layout_marginTop="15dp"
-        android:layout_below="@id/view">
+        android:layout_marginTop="15dp">
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -52,12 +54,19 @@
                     android:text="@string/enter_location"
                     android:textSize="20sp"
                     android:id="@+id/textView3"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginStart="10dp"/>
 
                 <Spinner
-                    android:layout_width="match_parent"
+                    android:layout_width="205dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/location_spinner" />
+
+                <ImageButton
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/imageButton"
+                    android:background="@drawable/gps_icon"
+                    android:contentDescription="@string/app_name"/>
 
                 <!-- Automatically ping gps and get building if enabled
                 <ImageButton
@@ -146,24 +155,11 @@
 
             </LinearLayout>
 
-            <Button
-                android:background="@drawable/styled_button"
-                style="@style/button_text"
-                android:textSize="20sp"
-                android:layout_width="wrap_content"
-                android:layout_height="45dp"
-                android:layout_marginTop="10dp"
-                android:text="@string/take_pic"
-                android:textColor="#FFFFFF"
-                android:id="@+id/camera_button"
-                android:layout_below="@id/row_four"
-                android:layout_centerHorizontal="true" />
-
             <ImageView
                 android:layout_width="fill_parent"
                 android:layout_height="fill_parent"
                 android:adjustViewBounds="true"
-                android:layout_below="@id/camera_button"
+                android:layout_below="@id/row_four"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
                 android:id="@+id/ImageView" />
@@ -171,16 +167,37 @@
         </RelativeLayout>
     </ScrollView>
 
-    <Button
-        android:background="@drawable/styled_button"
-        style="@style/button_text"
-        android:textSize="20sp"
-        android:layout_width="130dp"
-        android:layout_height="wrap_content"
-        android:text="@string/submit"
-        android:textColor="#FFFFFF"
-        android:id="@+id/submit_button"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
+    <LinearLayout
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="fill_parent"
+        android:id="@+id/row_five"
+        android:layout_below="@id/scrollView"
+        android:layout_centerHorizontal="true">
+
+        <Button
+            android:background="@drawable/styled_button"
+            style="@style/button_text"
+            android:textSize="20sp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/take_pic"
+            android:textColor="#FFFFFF"
+            android:id="@+id/camera_button"
+            android:layout_marginRight="20dp"/>
+
+        <Button
+            android:background="@drawable/styled_button"
+            style="@style/button_text"
+            android:textSize="20sp"
+            android:layout_width="150dp"
+            android:layout_height="wrap_content"
+            android:text="@string/submit"
+            android:textColor="#FFFFFF"
+            android:id="@+id/submit_button"
+            />
+
+    </LinearLayout>
+
 
 </RelativeLayout>
