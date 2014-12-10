@@ -49,25 +49,29 @@
         android:layout_marginTop="49dp" />
 
     <Button
-        android:layout_width="wrap_content"
+        android:background="@drawable/styled_button"
+        style="@style/button_text"
+        android:textSize="20sp"
+        android:layout_width="130dp"
         android:layout_height="wrap_content"
+        android:textColor="#FFFFFF"
         android:text="@string/login"
         android:id="@+id/login_button"
         android:layout_below="@+id/remember_checkbox"
-        android:layout_alignLeft="@+id/remember_checkbox"
         android:layout_alignStart="@+id/remember_checkbox"
-        android:layout_alignRight="@+id/remember_checkbox"
-        android:layout_alignEnd="@+id/remember_checkbox" />
+        android:layout_alignEnd="@+id/remember_checkbox"/>
 
     <CheckBox
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/remember_me"
         android:id="@+id/remember_checkbox"
-        android:layout_marginTop="49dp"
         android:checked="false"
         android:layout_below="@+id/password"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="50dp"
+        android:layout_marginBottom="20dp"
+        />
 
     <EditText
         android:layout_width="wrap_content"

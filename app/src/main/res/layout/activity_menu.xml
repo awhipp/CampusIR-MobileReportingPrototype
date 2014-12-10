@@ -48,8 +48,7 @@
         android:layout_height="60dp"
         android:text="@string/title_activity_new_report"
         android:id="@+id/new_report"
-        android:layout_marginTop="70dp"
-        android:layout_below="@+id/my_reports"
+        android:layout_centerVertical="true"
         android:layout_centerHorizontal="true" />
 
     <Button
@@ -61,7 +60,7 @@
         android:text="@string/logout"
         android:textColor="#FFFFFF"
         android:id="@+id/logout_button"
-        android:layout_marginTop="77dp"
+        android:layout_marginTop="57dp"
         android:layout_below="@+id/new_report"
         android:layout_centerHorizontal="true" />
 

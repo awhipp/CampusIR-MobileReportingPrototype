@@ -22,16 +22,17 @@
     <string name="submit">Submit</string>
     <string name="take_pic">Take a Picture</string>
     <string name="clear_cache">Clear Reports Cache</string>
+    <string name="asterisk">*</string>
+    <string name="blank"> </string>
 
     <string-array name="buildings_array">
-        <item>Queen Annes</item>
-        <item>Dorchester</item>
-        <item>Saint Mary\'s</item>
-        <item>Anne Arundel</item>
-        <item>Somerset</item>
-        <item>Wicomico</item>
-        <item>Caroline</item>
-        <item>Worcester</item>
+        <item>Cambridge</item>
+        <item>Denton</item>
+        <item>Ellicott</item>
+        <item>Leonardtown</item>
+        <item>North Hill</item>
+        <item>South Hill</item>
+        <item>Commons</item>
     </string-array>
     <string-array name="issue_array">
         <item>Broken Window</item>

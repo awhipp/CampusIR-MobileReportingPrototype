@@ -51,20 +51,29 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/asterisk"
+                    android:textColor="@color/red"
+                    android:id="@+id/asterisk1"
+                    android:layout_margin="0dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/enter_location"
                     android:textSize="20sp"
-                    android:id="@+id/textView3"
+                    android:id="@+id/buiding_tv"
                     android:layout_marginStart="10dp"/>
 
                 <Spinner
-                    android:layout_width="205dp"
+                    android:layout_width="195dp"
                     android:layout_height="wrap_content"
                     android:id="@+id/location_spinner" />
 
                 <ImageButton
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:id="@+id/imageButton"
+                    android:id="@+id/gpsButton"
                     android:background="@drawable/gps_icon"
                     android:contentDescription="@string/app_name"/>
 
@@ -92,9 +101,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/asterisk"
+                    android:textColor="@color/red"
+                    android:id="@+id/asterisk2"
+                    android:layout_margin="0dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/room_or_area"
                     android:textSize="20sp"
-                    android:id="@+id/textView4"
+                    android:id="@+id/room_tv"
                     android:layout_marginLeft="10dp"/>
 
                 <EditText
@@ -116,9 +134,18 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:text="@string/asterisk"
+                    android:textColor="@color/red"
+                    android:id="@+id/asterisk3"
+                    android:layout_margin="0dp"
+                    />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
                     android:text="@string/issue_type"
                     android:textSize="20sp"
-                    android:id="@+id/textView5"
+                    android:id="@+id/issue_tv"
                     android:layout_marginLeft="10dp"/>
 
                 <Spinner
@@ -143,7 +170,7 @@
                     android:text="@string/description"
                     android:textSize="20sp"
                     android:id="@+id/textView6"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginStart="15dp"/>
 
                 <EditText
                     android:layout_width="match_parent"
@@ -151,7 +178,7 @@
                     android:inputType="textMultiLine"
                     android:ems="10"
                     android:id="@+id/description"
-                    android:layout_marginLeft="10dp"/>
+                    android:layout_marginStart="15dp"/>
 
             </LinearLayout>
 

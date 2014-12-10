@@ -1,7 +1,9 @@
 package com.rzepka.hsiao.whipp.campusir;
 
 import android.app.Activity;
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
@@ -18,6 +20,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.Toast;
@@ -26,6 +29,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.io.ObjectOutputStream;
+import java.util.HashMap;
 
 
 public class NewReport extends Activity {
@@ -52,7 +56,7 @@ public class NewReport extends Activity {
         final Button submit_button = (Button) findViewById(R.id.submit_button);
         final EditText area_text = (EditText) findViewById(R.id.area);
         final EditText description_text = (EditText) findViewById(R.id.description);
-
+        final ImageButton gps_button = (ImageButton) findViewById(R.id.gpsButton);
 
         camera_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -67,50 +71,68 @@ public class NewReport extends Activity {
 
         submit_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                MyApplication m = ((MyApplication)getApplicationContext());
-                /*if they pass in an image*/
-                InputMethodManager imm = (InputMethodManager)getSystemService(
-                        Context.INPUT_METHOD_SERVICE);
-                imm.hideSoftInputFromWindow(area_text.getWindowToken(), 0);
-                imm.hideSoftInputFromWindow(description_text.getWindowToken(), 0);
 
-                try {
-                    if (bitmap != null) {
-                        m.reports_array.add(new Report(
-                                building_spinner.getSelectedItem().toString(),
-                                area_text.getEditableText().toString(),
-                                issue_spinner.getSelectedItem().toString(),
-                                description_text.getEditableText().toString(),
-                                bitmap
-                        ));
+                if (!area_text.getEditableText().toString().replaceAll(" ","").equals("")) {
+                    new AlertDialog.Builder(NewReport.this)
+                            .setTitle("Submit Incident")
+                            .setMessage("Are you sure?")
+                            .setPositiveButton("Yes", new DialogInterface.OnClickListener() {
 
-                        prefs.edit()
-                                .putString("REPORTS", byteToString(serialize(m.reports_array)))
-                                .apply();
-                    } else {
-                        m.reports_array.add(new Report(
-                                building_spinner.getSelectedItem().toString(),
-                                area_text.getEditableText().toString(),
-                                issue_spinner.getSelectedItem().toString(),
-                                description_text.getEditableText().toString(),
-                                BitmapFactory.decodeResource(context.getResources(),
-                                        R.drawable.noimage)
-                        ));
+                                @Override
+                                public void onClick(DialogInterface dialog, int which) {
+                                    MyApplication m = ((MyApplication) getApplicationContext());
+                                    InputMethodManager imm = (InputMethodManager) getSystemService(
+                                            Context.INPUT_METHOD_SERVICE);
+                                    imm.hideSoftInputFromWindow(area_text.getWindowToken(), 0);
+                                    imm.hideSoftInputFromWindow(description_text.getWindowToken(), 0);
 
-                        prefs.edit()
-                                .putString("REPORTS", byteToString(serialize(m.reports_array)))
-                                .apply();
-                    }
+                                    try {
+                                        if (bitmap != null) {
+                                            m.reports_array.add(new Report(
+                                                    building_spinner.getSelectedItem().toString(),
+                                                    area_text.getEditableText().toString(),
+                                                    issue_spinner.getSelectedItem().toString(),
+                                                    description_text.getEditableText().toString(),
+                                                    bitmap
+                                            ));
 
-                    finish();
-                }catch(IOException e){
-                    e.printStackTrace();
+                                            prefs.edit()
+                                                    .putString("REPORTS", byteToString(serialize(m.reports_array)))
+                                                    .apply();
+                                        } else {
+                                            m.reports_array.add(new Report(
+                                                    building_spinner.getSelectedItem().toString(),
+                                                    area_text.getEditableText().toString(),
+                                                    issue_spinner.getSelectedItem().toString(),
+                                                    description_text.getEditableText().toString(),
+                                                    BitmapFactory.decodeResource(context.getResources(),
+                                                            R.drawable.noimage)
+                                            ));
+                                            prefs.edit()
+                                                    .putString("REPORTS", byteToString(serialize(m.reports_array)))
+                                                    .apply();
+                                        }
+                                        Toast.makeText(NewReport.this, "Successfully Submitted", Toast.LENGTH_SHORT).show();
+                                        finish();
+
+                                    } catch (IOException e) {
+                                        e.printStackTrace();
+                                    }
+                                }
+
+                            })
+                            .setNegativeButton("No", null)
+                            .show();
+
+
+                }else{
+                    Toast.makeText(NewReport.this, "Please Complete Required Fields (*)", Toast.LENGTH_LONG).show();
                 }
             }
         });
 
         building_spinner = (Spinner) findViewById(R.id.location_spinner);
-        ArrayAdapter<CharSequence> building_adapter = ArrayAdapter.createFromResource(this,
+        final ArrayAdapter<CharSequence> building_adapter = ArrayAdapter.createFromResource(this,
                 R.array.buildings_array, android.R.layout.simple_spinner_item);
         building_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         building_spinner.setAdapter(building_adapter);
@@ -121,8 +143,13 @@ public class NewReport extends Activity {
         issue_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         issue_spinner.setAdapter(issue_adapter);
 
-
-
+        gps_button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                String nearest_community = nearestCommunity();
+                if(nearest_community != null)
+                    building_spinner.setSelection(building_adapter.getPosition(nearest_community));
+            }
+        });
     }
 
     public void takePhoto(View view) {
@@ -182,6 +209,44 @@ public class NewReport extends Activity {
         }
         return super.onOptionsItemSelected(item);
     }
+
+    private String nearestCommunity(){
+        HashMap<String, Point> communities = new HashMap<>();
+        communities.put("Cambridge", new Point(38.991911, -76.943051));
+        communities.put("Denton", new Point(38.992728, -76.949655));
+        communities.put("Ellicott", new Point(38.991965, -76.946661));
+        communities.put("Leonardtown", new Point(38.983683, -76.933412));
+        communities.put("North Hill", new Point(38.983740, -76.944880));
+        communities.put("South Hill", new Point(38.982254, -76.941378));
+        communities.put("Commons", new Point(38.982087, -76.942925));
+
+        String nearest = "";
+        double shortest_distance = Double.MAX_VALUE;
+        GPSTracker gps = new GPSTracker(NewReport.this);
+        Point myLocation = new Point(gps.getLatitude(), gps.getLongitude());
+
+        if(gps.canGetLocation()) {
+            for (String s : communities.keySet()) {
+                if (nearest.equals("")){
+                    nearest = s;
+                    shortest_distance = communities.get(s).distance(myLocation);
+                }else {
+                    if(communities.get(s).distance(myLocation) < shortest_distance){
+                        nearest = s;
+                        shortest_distance = communities.get(s).distance(myLocation);
+                    }
+                }
+            }
+            gps.stopUsingGPS();
+            return nearest;
+        }else{
+            Toast.makeText(NewReport.this, "GPS Disabled", Toast.LENGTH_LONG).show();
+            gps.stopUsingGPS();
+            return null;
+        }
+
+    }
+
 
 
 }

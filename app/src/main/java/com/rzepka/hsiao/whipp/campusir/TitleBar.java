@@ -22,8 +22,8 @@ public class TitleBar extends View {
     public void onDraw(Canvas canvas){
         super.onDraw(canvas);
 
-        paint.setColor(Color.parseColor("#a10000"));
-        canvas.drawRect(-1, -1, 1200, 300, paint);
+        paint.setColor(Color.parseColor("#870000"));
+        canvas.drawRect(0, 0, 1200, 10, paint);
     }
 
 }

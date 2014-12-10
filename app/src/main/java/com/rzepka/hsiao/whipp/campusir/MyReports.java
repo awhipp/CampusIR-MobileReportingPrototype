@@ -62,6 +62,7 @@ public class MyReports extends Activity {
 
         for(Report r : reports){
             LinearLayout l = new LinearLayout(this);
+            l.setPadding(0,20,0,20);
             l.setOrientation(LinearLayout.HORIZONTAL);
             l.setLayoutParams(LLParams);
             ImageView img = new ImageView(this);
@@ -89,9 +90,6 @@ public class MyReports extends Activity {
             internal.setGravity(Gravity.CENTER);
             l.addView(internal);
             linear_holder.addView(l);
-            Space space = new Space(this);
-            space.setMinimumHeight(20);
-            linear_holder.addView(space);
         }
     }
 
