@@ -60,36 +60,66 @@ public class MyReports extends Activity {
             }
         });
 
-        for(Report r : reports){
-            LinearLayout l = new LinearLayout(this);
-            l.setPadding(0,20,0,20);
-            l.setOrientation(LinearLayout.HORIZONTAL);
-            l.setLayoutParams(LLParams);
+        /*
+        linear_holder - overall layout for the entire activity
+        report - overall individual report
+        internal - text portion
+         */
+        for(int i = 0; i < reports.size(); i++){
+            final int j = i;
+            final Report r = reports.get(i);
             ImageView img = new ImageView(this);
             img.setImageBitmap(r.getCapture());
             img.setMaxWidth(250);
             img.setAdjustViewBounds(true);
             img.setTop(10);
             img.setBottom(10);
-            l.addView(img);
+
             LinearLayout internal = new LinearLayout(this);
             internal.setLayoutParams(LLParams);
             internal.setOrientation(LinearLayout.VERTICAL);
+            internal.setGravity(Gravity.CENTER);
+
             TextView location = new TextView(this);
-            location.setText("Location: " + r.getBuilding() + " - " + r.getArea());
+            location.setText("Location: " + r.getBuilding());
+
+            TextView area = new TextView(this);
+            area.setText("Room/Area: " + r.getArea());
+
             TextView issue = new TextView(this);
             issue.setText("Issue: " + r.getIssue_type());
-            TextView description = new TextView(this);
-            description.setText("Description: " + r.getDescription());
+
+            internal.addView(location);
+            internal.addView(area);
+            internal.addView(issue);
+
             Space internal_spacer = new Space(this);
             internal_spacer.setMinimumWidth(20);
-            l.addView(internal_spacer);
-            internal.addView(location);
-            internal.addView(issue);
-            internal.addView(description);
-            internal.setGravity(Gravity.CENTER);
-            l.addView(internal);
-            linear_holder.addView(l);
+
+//            ImageView chevron = new ImageView(this);
+//            chevron.setImageDrawable(getResources().getDrawable(R.drawable.chevron));
+//            chevron.setMaxWidth(125);
+//            chevron.setAdjustViewBounds(true);
+
+            LinearLayout report = new LinearLayout(this);
+            report.setPadding(0,20,0,20);
+            report.setOrientation(LinearLayout.HORIZONTAL);
+            report.setGravity(Gravity.CENTER);
+            report.setLayoutParams(LLParams);
+            report.addView(img);
+            report.addView(internal_spacer);
+            report.addView(internal);
+//            report.addView(chevron);
+
+            report.setOnClickListener(new View.OnClickListener() {
+                public void onClick(View v) {
+                    Intent intent = new Intent(context, FullReport.class);
+                    intent.putExtra("ReportIndex", j);
+                    startActivity(intent);
+                }
+            });
+
+            linear_holder.addView(report);
         }
     }
 

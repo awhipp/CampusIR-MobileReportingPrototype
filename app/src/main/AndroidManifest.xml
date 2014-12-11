@@ -39,6 +39,10 @@
             android:name=".MyReports"
             android:label="@string/title_activity_my_reports" >
         </activity>
+        <activity
+            android:name=".FullReport"
+            android:label="@string/title_activity_full_report" >
+        </activity>
     </application>
 
 </manifest>

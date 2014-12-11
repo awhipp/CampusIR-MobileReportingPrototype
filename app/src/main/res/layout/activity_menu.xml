@@ -37,7 +37,6 @@
         android:text="@string/title_activity_my_reports"
         android:id="@+id/my_reports"
         android:layout_marginTop="81dp"
-        android:layout_below="@+id/view"
         android:layout_alignLeft="@+id/new_report"
         android:layout_alignStart="@+id/new_report" />
 

@@ -23,9 +23,9 @@
     <string name="take_pic">Take a Picture</string>
     <string name="clear_cache">Clear Reports Cache</string>
     <string name="asterisk">*</string>
-    <string name="blank"> </string>
 
     <string-array name="buildings_array">
+        <item>[Select One]</item>
         <item>Cambridge</item>
         <item>Denton</item>
         <item>Ellicott</item>
@@ -35,14 +35,16 @@
         <item>Commons</item>
     </string-array>
     <string-array name="issue_array">
+        <item>[Select One]</item>
         <item>Broken Window</item>
         <item>Broken A/C</item>
         <item>Broken Lock</item>
         <item>Water Not Working</item>
-        <item>Other (explain in description section)</item>
+        <item>Other (explain in description)</item>
     </string-array>
 
     <string name="title_activity_camera">Camera</string>
     <string name="title_activity_test">test</string>
+    <string name="title_activity_full_report">FullReport</string>
 
 </resources>

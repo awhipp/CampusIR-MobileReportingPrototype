@@ -58,6 +58,18 @@ public class NewReport extends Activity {
         final EditText description_text = (EditText) findViewById(R.id.description);
         final ImageButton gps_button = (ImageButton) findViewById(R.id.gpsButton);
 
+        building_spinner = (Spinner) findViewById(R.id.location_spinner);
+        final ArrayAdapter<CharSequence> building_adapter = ArrayAdapter.createFromResource(this,
+                R.array.buildings_array, android.R.layout.simple_spinner_item);
+        building_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        building_spinner.setAdapter(building_adapter);
+
+        issue_spinner = (Spinner) findViewById(R.id.issue_spinner);
+        final ArrayAdapter<CharSequence> issue_adapter = ArrayAdapter.createFromResource(this,
+                R.array.issue_array, android.R.layout.simple_spinner_item);
+        issue_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+        issue_spinner.setAdapter(issue_adapter);
+
         camera_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 imageView = (ImageView) findViewById(R.id.ImageView);
@@ -72,7 +84,9 @@ public class NewReport extends Activity {
         submit_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                if (!area_text.getEditableText().toString().replaceAll(" ","").equals("")) {
+                if (!area_text.getEditableText().toString().replaceAll(" ","").equals("") &&
+                        issue_spinner.getSelectedItemPosition() != issue_adapter.getPosition("[Select One]") &&
+                        building_spinner.getSelectedItemPosition() != building_adapter.getPosition("[Select One]")) {
                     new AlertDialog.Builder(NewReport.this)
                             .setTitle("Submit Incident")
                             .setMessage("Are you sure?")
@@ -130,18 +144,6 @@ public class NewReport extends Activity {
                 }
             }
         });
-
-        building_spinner = (Spinner) findViewById(R.id.location_spinner);
-        final ArrayAdapter<CharSequence> building_adapter = ArrayAdapter.createFromResource(this,
-                R.array.buildings_array, android.R.layout.simple_spinner_item);
-        building_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        building_spinner.setAdapter(building_adapter);
-
-        issue_spinner = (Spinner) findViewById(R.id.issue_spinner);
-        ArrayAdapter<CharSequence> issue_adapter = ArrayAdapter.createFromResource(this,
-                R.array.issue_array, android.R.layout.simple_spinner_item);
-        issue_adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        issue_spinner.setAdapter(issue_adapter);
 
         gps_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
