@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.view.Gravity;
@@ -69,7 +70,12 @@ public class MyReports extends Activity {
             final int j = i;
             final Report r = reports.get(i);
             ImageView img = new ImageView(this);
-            img.setImageBitmap(r.getCapture());
+            Bitmap bitmap = r.getCapture();
+            if(bitmap == null){
+                img.setImageDrawable(getResources().getDrawable(R.drawable.noimage));
+            }else {
+                img.setImageBitmap(bitmap);
+            }
             img.setMaxWidth(250);
             img.setAdjustViewBounds(true);
             img.setTop(10);

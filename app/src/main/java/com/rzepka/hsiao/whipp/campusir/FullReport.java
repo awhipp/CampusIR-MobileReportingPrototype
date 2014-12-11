@@ -28,13 +28,27 @@ public class FullReport extends Activity {
         m = ((MyApplication) getApplicationContext());
         ArrayList<Report> reports = m.reports_array;
 
+        TextView header1 = (TextView) findViewById(R.id.header1);
+        TextView header2 = (TextView) findViewById(R.id.header2);
+        TextView header3 = (TextView) findViewById(R.id.header3);
+
+        ImageView report_image = (ImageView) findViewById(R.id.report_image);
+
         String description = reports.get(index).getDescription();
         String area = reports.get(index).getArea();
         String building = reports.get(index).getBuilding();
         String incident = reports.get(index).getIssue_type();
         Bitmap image = reports.get(index).getCapture();
-        ((TextView) findViewById(R.id.test)).setText(description + "\n" + area + "\n" + building + "\n" + incident);
-        ((ImageView) findViewById(R.id.test2)).setImageBitmap(image);
+
+        header1.setText("Building: " + building);
+        header2.setText("Room/Area: " + area + "\nIssue: " + incident);
+        header3.setText("More Information: " + description);
+
+        if(image == null){
+            report_image.setImageDrawable(getResources().getDrawable(R.drawable.noimage));
+        }else{
+            report_image.setImageBitmap(image);
+        }
     }
 
     public boolean onOptionsItemSelected(MenuItem item) {

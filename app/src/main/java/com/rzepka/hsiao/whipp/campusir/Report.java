@@ -27,6 +27,16 @@ public class Report implements Serializable {
         this.capture = blob.toByteArray();
     }
 
+    public Report(String building, String area, String issue_type, String description){
+        this.building = building;
+        this.area = area;
+        this.issue_type = issue_type;
+        this.description = description;
+        this.capture = null;
+    }
+
+   // BitmapFactory.decodeResource(context.getResources(),R.drawable.noimage)
+
     public String getBuilding() { return this.building; }
 
     public String getArea() { return this.area; }
@@ -35,6 +45,12 @@ public class Report implements Serializable {
 
     public String getDescription() { return this.description; }
 
-    public Bitmap getCapture() { return BitmapFactory.decodeByteArray(capture , 0, capture.length);}
+    public Bitmap getCapture() {
+        if (capture == null) {
+            return null;
+        } else {
+            return BitmapFactory.decodeByteArray(capture, 0, capture.length);
+        }
+    }
 
 }

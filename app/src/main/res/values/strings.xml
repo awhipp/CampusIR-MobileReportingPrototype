@@ -18,7 +18,7 @@
     <string name="enter_location">Building:</string>
     <string name="room_or_area">Room/Area:</string>
     <string name="issue_type">Issue Type:</string>
-    <string name="description">Description:</string>
+    <string name="description">More Information:</string>
     <string name="submit">Submit</string>
     <string name="take_pic">Take a Picture</string>
     <string name="clear_cache">Clear Reports Cache</string>

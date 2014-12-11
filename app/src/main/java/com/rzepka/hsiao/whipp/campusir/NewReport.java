@@ -7,7 +7,6 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.graphics.Bitmap;
-import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.os.Environment;
@@ -118,9 +117,7 @@ public class NewReport extends Activity {
                                                     building_spinner.getSelectedItem().toString(),
                                                     area_text.getEditableText().toString(),
                                                     issue_spinner.getSelectedItem().toString(),
-                                                    description_text.getEditableText().toString(),
-                                                    BitmapFactory.decodeResource(context.getResources(),
-                                                            R.drawable.noimage)
+                                                    description_text.getEditableText().toString()
                                             ));
                                             prefs.edit()
                                                     .putString("REPORTS", byteToString(serialize(m.reports_array)))
