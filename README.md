@@ -4,6 +4,7 @@ CampusIR-MobileReportingPrototype
 Project for CMSC434 - HCI, at University of Maryland, College Park.
 
 Developed by Alexander Whipp
+
 Designed by Enoch Hsiao and Matt Rzepka
 
 ##Overview and Activities
