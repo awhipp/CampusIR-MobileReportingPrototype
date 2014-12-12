@@ -135,9 +135,15 @@ public class FullReport extends Activity {
                                 } catch (IOException e) {
                                     e.printStackTrace();
                                 }
-                                Toast.makeText(context, "Report Deleted", Toast.LENGTH_SHORT).show();
-                                Intent intent = new Intent(context, MyReports.class);
-                                startActivity(intent);
+                                if (m.reports_array.size() != 0) {
+                                    Toast.makeText(context, "Report Deleted", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(context, MyReports.class);
+                                    startActivity(intent);
+                                }else{
+                                    Toast.makeText(context, "No Reports Remaining", Toast.LENGTH_SHORT).show();
+                                    Intent intent = new Intent(context, MenuActivity.class);
+                                    startActivity(intent);
+                                }
                                 finish();
                             }
                         })
