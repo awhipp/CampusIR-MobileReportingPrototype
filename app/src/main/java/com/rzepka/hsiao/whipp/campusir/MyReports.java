@@ -11,11 +11,11 @@ import android.view.Gravity;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.Space;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -47,19 +47,13 @@ public class MyReports extends Activity {
                 new WindowManager.LayoutParams(WindowManager.LayoutParams.WRAP_CONTENT,
                         WindowManager.LayoutParams.WRAP_CONTENT);
 
-        Button clear_cache = (Button) findViewById(R.id.clear_cache);
-
-        clear_cache.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                m.reports_array = new ArrayList<>();
-                boolean remember = prefs.getBoolean("REMEMBER", false);
-                prefs.edit().clear().apply();
-                prefs.edit().putBoolean("REMEMBER",remember);
-                Intent intent = new Intent(context, MyReports.class);
-                startActivity(intent);
-                finish();
-            }
-        });
+        TextView title = (TextView) findViewById(R.id.title);
+        if(reports.size() == 0){
+            Toast.makeText(this, "No Reports Submitted", Toast.LENGTH_SHORT).show();
+            finish();
+        }else{
+            title.setText("Tap to View Details\n");
+        }
 
         /*
         linear_holder - overall layout for the entire activity
@@ -80,6 +74,7 @@ public class MyReports extends Activity {
             img.setAdjustViewBounds(true);
             img.setTop(10);
             img.setBottom(10);
+            img.setBackground(getResources().getDrawable(R.drawable.border));
 
             LinearLayout internal = new LinearLayout(this);
             internal.setLayoutParams(LLParams);

@@ -45,6 +45,10 @@ public class Report implements Serializable {
 
     public String getDescription() { return this.description; }
 
+    public void addDescription(String info){
+        this.description += "\nNEW INFO. " + info;
+    }
+
     public Bitmap getCapture() {
         if (capture == null) {
             return null;

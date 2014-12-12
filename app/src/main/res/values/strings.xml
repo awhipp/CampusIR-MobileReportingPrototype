@@ -23,24 +23,66 @@
     <string name="take_pic">Take a Picture</string>
     <string name="clear_cache">Clear Reports Cache</string>
     <string name="asterisk">*</string>
+    <string name="progress">Progress: </string>
+    <string name="delete">Delete Report</string>
+    <string name="add">Add Information</string>
 
     <string-array name="buildings_array">
         <item>[Select One]</item>
-        <item>Cambridge</item>
-        <item>Denton</item>
-        <item>Ellicott</item>
-        <item>Leonardtown</item>
-        <item>North Hill</item>
-        <item>South Hill</item>
-        <item>Commons</item>
+        <item>Bel Air Hall</item>
+        <item>Cambridge Hall</item>
+        <item>Centreville Hall</item>
+        <item>Chestertown Hall</item>
+        <item>Cumberland Hall</item>
+        <item>Denton Hall</item>
+        <item>Easton Hall</item>
+        <item>Elkton Hall</item>
+        <item>Oakland Hall</item>
+        <item>Ellicott Hall</item>
+        <item>Hagerstown Hall</item>
+        <item>La Plata Hall</item>
+        <item>Old Leonardtown</item>
+        <item>New Leonardtown</item>
+        <item>Anne Arundel Hall</item>
+        <item>Caroline Hall</item>
+        <item>Carroll Hall</item>
+        <item>Dorchester Hall</item>
+        <item>Prince Frederick Hall</item>
+        <item>Queen Anne\'s Hall</item>
+        <item>St. Mary\'s Hall</item>
+        <item>Somerset Hall</item>
+        <item>Wicomico Hall</item>
+        <item>Worcester Hall</item>
+        <item>Allegany Hall</item>
+        <item>Baltimore Hall</item>
+        <item>Calvert Hall</item>
+        <item>Cecil Hall</item>
+        <item>Charles Hall</item>
+        <item>Frederick Hall</item>
+        <item>Garrett Hall</item>
+        <item>Harford Hall</item>
+        <item>Howard Hall</item>
+        <item>Kent Hall</item>
+        <item>Montgomery Hall</item>
+        <item>Prince George\'s Hall</item>
+        <item>Talbot Hall</item>
+        <item>Washington Hall</item>
+        <item>South Campus Commons</item>
     </string-array>
+
     <string-array name="issue_array">
         <item>[Select One]</item>
         <item>Broken Window</item>
         <item>Broken A/C</item>
         <item>Broken Lock</item>
         <item>Water Not Working</item>
-        <item>Other (explain in description)</item>
+        <item>Outlet Broken</item>
+        <item>WiFi Down</item>
+        <item>Pipe Broken</item>
+        <item>Leaking Ceiling</item>
+        <item>Cracked Floor</item>
+        <item>Paint Chipped</item>
+        <item>Other</item>
     </string-array>
 
     <string name="title_activity_camera">Camera</string>

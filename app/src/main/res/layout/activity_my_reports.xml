@@ -31,8 +31,8 @@
     -->
 
     <ScrollView
-        android:layout_width="fill_parent"
-        android:layout_height="430dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:id="@+id/scrollView"
         android:layout_marginTop="10dp">
 
@@ -45,19 +45,13 @@
             android:divider="@drawable/divider"
             android:showDividers="middle">
 
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:layout_gravity="center_horizontal"
+                android:id="@+id/title" />
         </LinearLayout>
     </ScrollView>
-
-    <Button
-        android:background="@drawable/styled_button"
-        style="@style/button_text"
-        android:textSize="20sp"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/clear_cache"
-        android:textColor="#FFFFFF"
-        android:id="@+id/clear_cache"
-        android:layout_alignParentBottom="true"
-        android:layout_centerHorizontal="true" />
 
 </RelativeLayout>

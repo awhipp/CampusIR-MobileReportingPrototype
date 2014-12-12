@@ -83,7 +83,10 @@ public class NewReport extends Activity {
         submit_button.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
 
-                if (!area_text.getEditableText().toString().replaceAll(" ","").equals("") &&
+                if(issue_spinner.getSelectedItemPosition() == issue_adapter.getPosition("Other") &&
+                        description_text.getEditableText().toString().replaceAll(" ","").replaceAll("\n","").equals("")){
+                    Toast.makeText(NewReport.this, "Other Selected. Please complete \"More Information.\"", Toast.LENGTH_LONG).show();
+                }else if (!area_text.getEditableText().toString().replaceAll(" ","").equals("") &&
                         issue_spinner.getSelectedItemPosition() != issue_adapter.getPosition("[Select One]") &&
                         building_spinner.getSelectedItemPosition() != building_adapter.getPosition("[Select One]")) {
                     new AlertDialog.Builder(NewReport.this)
@@ -211,13 +214,45 @@ public class NewReport extends Activity {
 
     private String nearestCommunity(){
         HashMap<String, Point> communities = new HashMap<>();
-        communities.put("Cambridge", new Point(38.991911, -76.943051));
-        communities.put("Denton", new Point(38.992728, -76.949655));
-        communities.put("Ellicott", new Point(38.991965, -76.946661));
-        communities.put("Leonardtown", new Point(38.983683, -76.933412));
-        communities.put("North Hill", new Point(38.983740, -76.944880));
-        communities.put("South Hill", new Point(38.982254, -76.941378));
-        communities.put("Commons", new Point(38.982087, -76.942925));
+        communities.put("Bel Air Hall", new Point(38.992797, -76.942644));
+        communities.put("Cambridge Hall", new Point(38.991727, -76.943052));
+        communities.put("Centreville Hall", new Point(38.992235, -76.942076));
+        communities.put("Chestertown Hall", new Point(38.992836, -76.943481));
+        communities.put("Cumberland Hall", new Point(38.992314, -76.943958));
+        communities.put("Denton Hall", new Point(38.992235, -76.949995));
+        communities.put("Easton Hall", new Point(38.992997, -76.950271));
+        communities.put("Elkton Hall", new Point(38.992437, -76.948925));
+        communities.put("Oakland Hall", new Point(38.993847, -76.949394));
+        communities.put("Ellicott Hall", new Point(38.991823, -76.946685));
+        communities.put("Hagerstown Hall", new Point(38.992429, -76.947441));
+        communities.put("La Plata Hall", new Point(38.992438, -76.945858));
+        communities.put("Old Leonardtown", new Point(38.982876, -76.932612));
+        communities.put("New Leonardtown", new Point(38.984325, -76.933352));
+        communities.put("Anne Arundel Hall", new Point(38.985974, -76.946747));
+        communities.put("Caroline Hall", new Point(38.983743, -76.945855));
+        communities.put("Carroll Hall", new Point(38.983997, -76.945641));
+        communities.put("Dorchester Hall", new Point(38.986708, -76.946146));
+        communities.put("Prince Frederick Hall", new Point(38.983136, -76.945629));
+        communities.put("Queen Anne's Hall", new Point(38.985284, -76.946194));
+        communities.put("St. Mary's Hall", new Point(38.986960, -76.945615));
+        communities.put("Somerset Hall", new Point(38.985061, -76.945566));
+        communities.put("Wicomico Hall", new Point(38.983743, -76.945855));
+        communities.put("Worcester Hall", new Point(38.984675, -76.945035));
+        communities.put("Allegany Hall", new Point(38.981592, -76.941432));
+        communities.put("Baltimore Hall", new Point(38.982257, -76.942205));
+        communities.put("Calvert Hall", new Point(38.982923, -76.942333));
+        communities.put("Cecil Hall", new Point(38.982933, -76.941652));
+        communities.put("Charles Hall", new Point(38.981590, -76.940525));
+        communities.put("Frederick Hall", new Point(38.982047, -76.940740));
+        communities.put("Garrett Hall", new Point(38.983266, -76.942703));
+        communities.put("Harford Hall", new Point(38.982529, -76.940869));
+        communities.put("Howard Hall", new Point(38.981946, -76.941969));
+        communities.put("Kent Hall", new Point(38.983275, -76.941834));
+        communities.put("Montgomery Hall", new Point(38.981900, -76.939324));
+        communities.put("Prince George's Hall", new Point(38.982601, -76.941840));
+        communities.put("Talbot Hall", new Point(38.983377, -76.942279));
+        communities.put("Washington Hall", new Point(38.981823, -76.941357));
+        communities.put("South Campus Commons", new Point(38.982087, -76.942925));
 
         String nearest = "";
         double shortest_distance = Double.MAX_VALUE;
