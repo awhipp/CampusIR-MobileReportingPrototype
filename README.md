@@ -7,6 +7,8 @@ Developed by Alexander Whipp
 
 Designed by Enoch Hsiao and Matt Rzepka
 
+To Use: Required API 19 and above. Developed on API 21. Build and run as normal. Tested on 1080x1920 resolution.
+
 ##Overview and Activities
 First and foremost this is a prototype. It will simulate all the stages of active use throughout its life-cycle.
 ###Login Activity
